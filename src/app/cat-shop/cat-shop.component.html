@@ -1,0 +1,22 @@
+<div class="left">
+  <select [(ngModel)]="userId">
+    <option value="">Select User</option>
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+  </select>
+  <ul>
+    <li *ngFor="let cat of getUserCats()">
+      <p>{{cat.name}}</p>
+      <button type="button" (click)="removeCatFromUser(cat)">Remove</button>
+    </li>
+  </ul>
+</div>
+<div class="right">
+  <ul>
+    <li *ngFor="let cat of getFreeCats()">
+      <p>{{cat.name}}</p>
+      <button type="button" (click)="addCatToUser(cat)" [disabled]="!userId">Add</button>
+    </li>
+  </ul>
+</div>
+
+

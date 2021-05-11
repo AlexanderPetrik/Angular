@@ -1,0 +1,22 @@
+<header>
+  <h1>{{title}} --- {{date | date: 'EEEE && dd/MM/yyyy -- HH:mm:ss'}}</h1>
+  <nav>
+    <a [routerLink]="'/'">Home</a>
+    <a [routerLink]="'/users'">Users</a>
+    <a [routerLink]="'/cats'">Cats</a>
+    <a [routerLink]="'/cat-shop'">Cat Shop</a>
+    <a [routerLink]="'/todo-list'">To Do List</a>
+  </nav>
+</header>
+<main>
+  <!-- <app-cats [cats]="cats" (delete)="deleteCat($event)"></app-cats> -->
+  <div class="mini-slider" (click)="nextSlide()">
+    <div [class.active]="activeIndex === 1"><h1>1</h1></div>
+    <div [class.active]="activeIndex === 2"><h1>2</h1></div>
+    <div [class.active]="activeIndex === 3"><h1>3</h1></div>
+  </div>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <h3>This is our footer</h3>
+</footer>

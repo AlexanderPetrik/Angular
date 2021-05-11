@@ -1,0 +1,19 @@
+<button type="button" (click)="toggleAddForm()">Add</button>
+<div *ngIf="showAddForm">
+  <input type="text" placeholder="Title">
+  <button type="button">Add task</button>
+</div>
+<ul>
+  <li>
+    <h3>Text</h3>
+    <button type="button">Complete</button>
+    <button type="button">Remove</button>
+  </li>
+</ul>
+<ul>
+  <li>
+    <h3>Text</h3>
+    <button type="button">Activate</button>
+    <button type="button">Remove</button>
+  </li>
+</ul>

@@ -1,0 +1,17 @@
+<h3>Cats:</h3>
+<ul>
+  <li *ngFor="let cat of cats">
+    Name: {{cat.name}}<br>
+    <h4>Cat Age: {{cat.age}}</h4>
+    <button type="button" (click)="deleteCat(cat)">Delete</button>
+  </li>
+</ul>
+<div>
+  <input [(ngModel)]="addCatForm.name" #name="ngModel" required type="text" placeholder="Cat Name">
+  <span *ngIf="name.errors?.required && (name.dirty || name.touched)">Required field</span>
+</div>
+<div>
+  <input [(ngModel)]="addCatForm.age" #age="ngModel" required type="number" placeholder="Cat Age">
+  <span *ngIf="age.errors?.required && (age.dirty || age.touched)">Required field</span>
+</div>
+<button type="button" (click)="addCat(name, age)">Add Cat</button>

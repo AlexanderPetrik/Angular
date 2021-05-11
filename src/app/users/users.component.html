@@ -1,0 +1,41 @@
+<h3>Users:</h3>
+<button type="button" (click)="filterUsers('All')">All</button>
+<button type="button" (click)="filterUsers('M')">Male</button>
+<button type="button" (click)="filterUsers('F')">Female</button>
+<button type="button" (click)="filterUsers('unknown')">Unknown</button>
+<br>
+<button type="buttom" (click)="sortUsers()">Sort by Name</button>
+<ul>
+  <li *ngFor="let user of filteredUsers">
+    <h4>Name: {{user.name}}</h4>
+    <h4>Age: {{user.age}}</h4>
+    <h4>Gender: {{user.gender === 'M' ? 'Male' : user.gender === 'F' ? 'Female' : user.gender}}</h4>
+    <h4>Email: {{user.email}}</h4>
+    <button type='button' (click)="deleteUser(user)">Delete</button>
+  </li>
+</ul>
+
+<div class="wrappForForm" [formGroup]="addUserForm" novalidate>
+  <div>
+    <input formControlName="name" type="text" placeholder="User Name">
+    <span *ngIf="addUserForm.controls.name.errors?.required && addUserForm.controls.name.touched">Required field</span>
+  </div>
+  <div>
+    <input formControlName="age" type="number" placeholder="User Age">
+    <span *ngIf="addUserForm.controls.age.errors?.required && addUserForm.controls.age.touched">Required field</span>
+    <span *ngIf="addUserForm.controls.age.errors?.max && addUserForm.controls.age.touched">Max posible age is 100</span>
+  </div>
+  <div>
+    <span>Gender</span>
+    <input formControlName="gender" type="radio" value="M" id="M">
+    <label for="M">Male</label>
+    <input formControlName="gender" type="radio" value="F" id="F">
+    <label for="F">Female</label>
+  </div>
+  <div>
+    <input formControlName="email" type="text" placeholder="User Email">
+    <span *ngIf="addUserForm.controls.email.errors?.required && addUserForm.controls.email.touched">Required field</span>
+    <span *ngIf="addUserForm.controls.email.errors?.maxlength">Max loh</span>
+  </div>
+  <button type="button" (click)="addUser()">Add User</button>
+</div>

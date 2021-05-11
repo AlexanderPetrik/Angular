@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "name": "Vasya",
+      "age": 25,
+      "gender": "M",
+      "email": "test@test.com",
+      "id": 1
+    },
+    {
+      "name": "eeegr",
+      "age": 43,
+      "gender": "F",
+      "email": "eferg",
+      "id": 2
+    },
+    {
+      "name": "eferg",
+      "age": 43,
+      "gender": "unknown",
+      "email": "errthh",
+      "id": 3
+    },
+    {
+      "name": "Alex",
+      "age": 22,
+      "gender": "M",
+      "email": "fgrrhtjt",
+      "id": 4
+    }
+  ],
+  "cats": [
+    {
+      "name": "Basik",
+      "age": 3,
+      "id": 1
+    },
+    {
+      "name": "Murik",
+      "age": 5,
+      "id": 2
+    },
+    {
+      "name": "Grinya",
+      "age": 12,
+      "id": 3
+    },
+    {
+      "name": "Senya",
+      "age": 2,
+      "id": 4
+    }
+  ]
+}
