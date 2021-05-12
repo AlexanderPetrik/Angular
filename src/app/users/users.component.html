@@ -15,7 +15,7 @@
   </li>
 </ul>
 
-<div class="wrappForForm" [formGroup]="addUserForm" novalidate>
+<div class="wrappForForm" [formGroup]="addUserForm">
   <div>
     <input formControlName="name" type="text" placeholder="User Name">
     <span *ngIf="addUserForm.controls.name.errors?.required && addUserForm.controls.name.touched">Required field</span>

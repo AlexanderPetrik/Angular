@@ -1,19 +1,22 @@
 <button type="button" (click)="toggleAddForm()">Add</button>
-<div *ngIf="showAddForm">
-  <input type="text" placeholder="Title">
-  <button type="button">Add task</button>
+<div class="form-task" [formGroup]="addTaskForm" *ngIf="showAddForm">
+  <input formControlName="title" type="text" placeholder="Title">
+  <span *ngIf="addTaskForm.controls.title.errors?.required && addTaskForm.controls.title.touched">Required field</span>
+  <button type="button" (click)="addTask()">Add task</button>
 </div>
+<h2>Active Tasks</h2>
 <ul>
-  <li>
-    <h3>Text</h3>
-    <button type="button">Complete</button>
-    <button type="button">Remove</button>
+  <li *ngFor="let task of tasks">
+    <h3>{{task.title}}</h3>
+    <button type="button" (click)="completeTask(task)">Complete</button>
+    <button type="button" (click)="removeTask(tasks, task)">Remove</button>
   </li>
 </ul>
+<h2>Completed Tasks</h2>
 <ul>
-  <li>
-    <h3>Text</h3>
-    <button type="button">Activate</button>
-    <button type="button">Remove</button>
+  <li *ngFor="let task of completedTasks">
+    <h3>{{task.title}}</h3>
+    <button type="button" (click)="activateTask(task)">Activate</button>
+    <button type="button" (click)="removeTask(completedTasks, task)">Remove</button>
   </li>
 </ul>

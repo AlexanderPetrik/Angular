@@ -50,5 +50,22 @@
       "age": 2,
       "id": 4
     }
+  ],
+  "tasks": [
+    {
+      "title": "DASDfegregreghrthrtd",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "cvnbgndjyhjdj",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "completed": true,
+      "id": 4
+    }
   ]
 }
