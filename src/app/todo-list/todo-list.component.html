@@ -2,21 +2,32 @@
 <div class="form-task" [formGroup]="addTaskForm" *ngIf="showAddForm">
   <input formControlName="title" type="text" placeholder="Title">
   <span *ngIf="addTaskForm.controls.title.errors?.required && addTaskForm.controls.title.touched">Required field</span>
-  <button type="button" (click)="addTask()">Add task</button>
+  <button type="button" (click)="saveTask()">{{addTaskForm.controls.id.value ? 'Edit' : 'Add'}} task</button>
+  <button type="button" (click)="addTaskForm.reset({title: '', id: undefined, completed: false})">Cancel</button>
 </div>
 <h2>Active Tasks</h2>
 <ul>
-  <li *ngFor="let task of tasks">
+  <li *ngFor="let task of tasks; let first = first; let last = last">
     <h3>{{task.title}}</h3>
+    <button type="button" (click)="editTask(task)">Edit</button>
     <button type="button" (click)="completeTask(task)">Complete</button>
     <button type="button" (click)="removeTask(tasks, task)">Remove</button>
+    <button type="button" [disabled]="first" class="move-up" (click)="moveTask(task, 'up')">>></button>
+    <button type="button" [disabled]="last" class="move-down" (click)="moveTask(task, 'down')">>></button>
   </li>
 </ul>
 <h2>Completed Tasks</h2>
 <ul>
   <li *ngFor="let task of completedTasks">
     <h3>{{task.title}}</h3>
+    <button type="button" (click)="editTask(task)">Edit</button>
     <button type="button" (click)="activateTask(task)">Activate</button>
     <button type="button" (click)="removeTask(completedTasks, task)">Remove</button>
   </li>
 </ul>
+
+<div class="confirm" *ngIf="showConfirmDialog">
+  <h3>Do you really want to remove this task?</h3>
+  <button type="button" (click)="confirmRemove()">OK</button>
+  <button type="button" (click)="cancelRemove()">CANCEL</button>
+</div>
