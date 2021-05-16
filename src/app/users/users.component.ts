@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SortService } from '../core/sort.service';
 
 export interface User {
   id: number;
@@ -30,6 +31,7 @@ export class UsersComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
+    private sortService: SortService,
   ) {}
 
   ngOnInit(): void {
@@ -48,14 +50,11 @@ export class UsersComponent implements OnInit {
     console.log(this.addUserForm.value);
     if(this.addUserForm.invalid) {
       Object.values(this.addUserForm.controls).forEach(control => control.markAsTouched());
+    } else {
+      this.http
+        .post('api/users', this.addUserForm.value)
+        .subscribe(() => this.getUsers());
     }
-    // if (fields.some(fld => fld.invalid)) {
-    //   fields.forEach(fld => fld.control.markAsDirty());
-    // } else {
-    //   this.http
-    //     .post('api/users', this.addUserForm)
-    //     .subscribe(() => this.getUsers());
-    // }
   }
 
   deleteUser(user: User) {
@@ -69,7 +68,7 @@ export class UsersComponent implements OnInit {
   }
 
   sortUsers() {
-    this.filteredUsers.sort((a, b) => a.name.localeCompare(b.name));
+    this.filteredUsers = this.sortService.sortArr(this.filteredUsers, 'age', 'number', 'desk');
   }
 
   // Создаем и иницализируем Реактивную форму

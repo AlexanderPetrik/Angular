@@ -1,3 +1,4 @@
+<h1 appInfo="This is our users page">Info</h1>
 <h3>Users:</h3>
 <button type="button" (click)="filterUsers('All')">All</button>
 <button type="button" (click)="filterUsers('M')">Male</button>
@@ -11,6 +12,7 @@
     <h4>Age: {{user.age}}</h4>
     <h4>Gender: {{user.gender === 'M' ? 'Male' : user.gender === 'F' ? 'Female' : user.gender}}</h4>
     <h4>Email: {{user.email}}</h4>
+    <h4>Greeting: Hello {{user.age | call}}</h4>
     <button type='button' (click)="deleteUser(user)">Delete</button>
   </li>
 </ul>

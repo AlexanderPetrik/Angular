@@ -9,6 +9,8 @@ import { CatsComponent } from './cats/cats.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CatShopComponent } from './cat-shop/cat-shop.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    SharedModule,
     RouterModule.forRoot([
       { path: 'users', component: UsersComponent },
       { path: 'cats', component: CatsComponent},
