@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CatShopComponent } from './cat-shop/cat-shop.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { SharedModule } from './shared/shared.module';
+import { ValidateMessagesComponent } from './validate-messages/validate-messages.component';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     UsersComponent,
     CatShopComponent,
     TodoListComponent,
+    ValidateMessagesComponent,
    ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
       { path: 'users', component: UsersComponent },
       { path: 'cats', component: CatsComponent},
       { path: 'cat-shop', component: CatShopComponent},
-      { path: 'todo-list', component: TodoListComponent}
+      { path: 'todo-list', component: TodoListComponent},
+      // { path: 'validate-messages', component: ValidateMessages}
     ]),
 
     FormsModule,

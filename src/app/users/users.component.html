@@ -20,12 +20,15 @@
 <div class="wrappForForm" [formGroup]="addUserForm">
   <div>
     <input formControlName="name" type="text" placeholder="User Name">
-    <span *ngIf="addUserForm.controls.name.errors?.required && addUserForm.controls.name.touched">Required field</span>
+    <app-validate-messages [control]="addUserForm.controls.name"></app-validate-messages>
+    <!-- <span *ngIf="addUserForm.controls.name.errors?.required && addUserForm.controls.name.touched">Required field</span> -->
+    <span></span>
   </div>
   <div>
     <input formControlName="age" type="number" placeholder="User Age">
-    <span *ngIf="addUserForm.controls.age.errors?.required && addUserForm.controls.age.touched">Required field</span>
-    <span *ngIf="addUserForm.controls.age.errors?.max && addUserForm.controls.age.touched">Max posible age is 100</span>
+    <app-validate-messages [control]="addUserForm.controls.age"></app-validate-messages>
+    <!-- <span *ngIf="addUserForm.controls.age.errors?.required && addUserForm.controls.age.touched">Required field</span>
+    <span *ngIf="addUserForm.controls.age.errors?.max && addUserForm.controls.age.touched">Max posible age is 100</span> -->
   </div>
   <div>
     <span>Gender</span>
@@ -36,8 +39,9 @@
   </div>
   <div>
     <input formControlName="email" type="text" placeholder="User Email">
-    <span *ngIf="addUserForm.controls.email.errors?.required && addUserForm.controls.email.touched">Required field</span>
-    <span *ngIf="addUserForm.controls.email.errors?.maxlength">Max loh</span>
+    <app-validate-messages [control]="addUserForm.controls.email"></app-validate-messages>
+    <!-- <span *ngIf="addUserForm.controls.email.errors?.required && addUserForm.controls.email.touched">Required field</span>
+    <span *ngIf="addUserForm.controls.email.errors?.maxlength">Max loh</span> -->
   </div>
   <button type="button" (click)="addUser()">Add User</button>
 </div>
